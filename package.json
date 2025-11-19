@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": "https://chandanpradhan029.github.io/hitmap",
   "scripts": {
-    "deploy" : "gh-pages -d build",
+    "deploy" : "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
