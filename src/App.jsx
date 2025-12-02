@@ -1,12 +1,6 @@
 // src/App.jsx
 import React, { useMemo, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  GeoJSON,
-  CircleMarker,
-  Tooltip,
-} from "react-leaflet";
+import { MapContainer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { complaints } from "./data";
 import blocksGeoJson from "./dhenkanal_blocks.json";
@@ -165,10 +159,12 @@ function App() {
       setSelectedBlockKey(key);
     });
 
-    layer.bindTooltip(
-      `${label} – ${total} complaint${total === 1 ? "" : "s"}`,
-      { sticky: true }
-    );
+    layer.bindTooltip(label, {
+      permanent: true,
+      direction: "center",
+      className: "block-label-tooltip",
+      opacity: 1,
+    });
   };
 
   return (
@@ -235,19 +231,12 @@ function App() {
               scrollWheelZoom={true}
               className="leaflet-map"
             >
-              <TileLayer
-                attribution='&copy; OpenStreetMap contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-
-              {/* Block polygons from GeoJSON */}
+              {/* Render only the block polygons so the background stays clean/white */}
               <GeoJSON
                 data={blocksGeoJson}
                 style={styleFeature}
                 onEachFeature={onEachFeature}
               />
-
-    
             </MapContainer>
           </div>
         </section>

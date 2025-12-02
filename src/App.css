@@ -187,7 +187,8 @@ body {
   height: 450px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.7);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2);
+  background: #fff;
 }
 
 /* keep Leaflet under the modal */
@@ -198,6 +199,23 @@ body {
 .leaflet-bottom {
   z-index: 0 !important;
   position: relative !important;
+  background: #fff;
+}
+
+.leaflet-tooltip.block-label-tooltip {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  border: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.leaflet-tooltip.block-label-tooltip::before {
+  display: none;
 }
 
 /* MODAL */
